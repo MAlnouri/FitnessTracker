@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+  <div class="text-primary">
+  <div class="jumbotron">
+      <h2>Your monthly weight loss</h2>
+
+      <%if (dataArray != null) { %>
+       
+        <ul class="list-group">
+            <% for(var i=0; i<dataArray.length; i++) {%>
+              <li class="list-group-item"><%= "Title:  " + dataArray[i].id + "             Date: " + dataArray[i].date %></li>
+            <% } %>
+          </ul>
+
+
+        <% } %>
+
+     
+
+     
+      </br>
+
+  </div>
+</div>
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+
+</body>
+</html>

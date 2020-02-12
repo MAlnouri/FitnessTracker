@@ -1,0 +1,35 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <!-- CSS should be in a file -->
+    <style>
+    .jumbotron
+    {
+      background-color:rgb(51, 63, 233);
+    }
+    </style>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+ 
+  <div class="jumbotron">
+      <div class="p-3 mb-2 bg-warning text-dark">
+      <h1>My Favorite Movies</h1>
+      <p>Welcome to my movies site</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
