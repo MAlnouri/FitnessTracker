@@ -14,11 +14,9 @@
   <div class="jumbotron">
       <h2>Add a new weight measurement</h2>
 
-      <label for="movie">Insert Weight</label>
-      <input class="form-control" type="text" id="movie" name="movie"><br>
-      <label for="date">Day Measured</label>
-      <input class="form-control" type="text" id="date" name="date"><br>
-      <button class="btn btn-primary  " onclick="updateURL();">Add another movie </button>
+      <label for="weight">Insert Weight</label>
+      <input class="form-control" type="text" id="weight" name="weight"><br>
+      <button class="btn btn-primary  " onclick="updateURL();">Insert new weight</button>
 
   </div>
 </div>
@@ -37,8 +35,7 @@
     var myURL = (document.location).toString();
     var n = myURL.indexOf("?");
     myURL = myURL.substr(0, n); 
-    document.location = myURL + "?id=" + document.getElementById("movie").value + 
-    "&date=" +  document.getElementById("date").value;
+    document.location = myURL + "?id=" + document.getElementById("weight").value;
 
   }
 </script>

@@ -36,13 +36,11 @@ app.get('/ShowMeasurements', function(req, res) {
 // http://localhost:3000/uploadData?id=2&date=1941
 app.get('/MeasureWeight', function(req, res) {
     let id = req.param('id');
-    let date = req.param('date');
     if(id != null){
-        let aMovie = {
-            id: id,
-            date: date
+        let newWeight = {
+            id: id
         }
-    app.dataArray.push(aMovie);
+    app.dataArray.push(newWeight);
     }
     res.render('pages/MeasureWeight', { 
         dataArray: app.dataArray
@@ -57,43 +55,14 @@ app.get('/WeightChange', function(req, res) {
     // clever way to make a real copy, not just a new reference name
     app.duplicateArray = JSON.parse(JSON.stringify( app.dataArray ));
 
-    // Sort the new array with the custom function
-    // that sorts alphabetically by the  key
-    app.duplicateArray.sort(dynamicSort("date"));
-
-
     res.render('pages/WeightChange', { 
         dataArray: app.duplicateArray
      });
   });
 
 
-  /**
-   *  https://ourcodeworld.com/articles/read/764/how-to-sort-alphabetically-an-array-of-objects-by-key-in-javascript
- * Function to sort alphabetically an array of objects by some specific key.
- * 
- * @param {String} property Key of the object to sort.
- */
-function dynamicSort(property) {
-    var sortOrder = 1;
-
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-
-    return function (a,b) {
-        if(sortOrder == -1){
-            return b[property].localeCompare(a[property]);
-        }else{
-            return a[property].localeCompare(b[property]);
-        }        
-    }
-}
-
-
-// doing this in www bin file to make Azure happy
-//app.listen(443);  // not setting port number in www.bin, simple to do here
-//console.log('443 is the magic port');
+//doing this in www bin file to make Azure happy
+app.listen(443);  // not setting port number in www.bin, simple to do here
+console.log('443 is the magic port');
 
 module.exports = app;

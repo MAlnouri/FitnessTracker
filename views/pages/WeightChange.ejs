@@ -14,19 +14,7 @@
   <div class="jumbotron">
       <h2>Your monthly weight loss</h2>
 
-      <%if (dataArray != null) { %>
-       
-        <ul class="list-group">
-            <% for(var i=0; i<dataArray.length; i++) {%>
-              <li class="list-group-item"><%= "Title:  " + dataArray[i].id + "             Date: " + dataArray[i].date %></li>
-            <% } %>
-          </ul>
-
-
-        <% } %>
-
-     
-
+      <h3><%= "You've lost " + (dataArray[0].id - dataArray[dataArray.length - 1].id) + " pounds!" %></h3>
      
       </br>
 
